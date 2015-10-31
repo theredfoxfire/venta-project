@@ -8,8 +8,8 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class CreateProject
 {
-    const SUCCESS = 'sensio.ceremony_tracker.project_creation_success';
-    const FAILURE = 'sensio.ceremony_tracker.project_creation_failure';
+    const SUCCESS = 'app_tracker.project_creation_success';
+    const FAILURE = 'app_tracker.project_creation_failure';
 
     private $repository;
     private $dispatcher;

@@ -34,7 +34,7 @@ class CreateProjectController
         $this->flashBag = $flashBag;
         $this->router = $router;
     }
-
+    
     public function createAction(Request $request)
     {
         $this->projectForm->handleRequest($request);

@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppTracker\GetManagerProjects;
 use AppBundle\Entity\Project;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -28,11 +29,14 @@ class ListMyProjectsController
         $this->templating = $templating;
     }
 
+    /**
+    * @Route("/", methods={"GET"})
+    */
     public function listAction()
     {
         $projects = $this->useCase->getManagerProjects($this->securityToken->getUser());
 
-        return $this->templating->renderResponse('CeremonyTrackerBundle:Projects:list.html.twig', [
+        return $this->templating->renderResponse('AppBundle:Projects:list.html.twig', [
             'project_form' => $this->projectFormView,
             'projects'     => array_map([$this, 'prepareProjectView'], $projects),
         ]);

@@ -27,7 +27,7 @@ class SecurityController
         }
 
         return $this->templating->renderResponse(
-            'CeremonyTrackerBundle:Security:login.html.twig',
+            'AppBundle:Security:login.html.twig',
             ['last_username' => $session->get(SecurityContext::LAST_USERNAME), 'error' => $error]
         );
     }
